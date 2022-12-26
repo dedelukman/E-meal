@@ -1,3 +1,6 @@
 import 'bootstrap';
 import './scss/app.scss';
-import './scripts/main';
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import main from './scripts/main.js';
+
+document.addEventListener('DOMContentLoaded', main);

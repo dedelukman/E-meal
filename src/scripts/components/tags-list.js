@@ -1,29 +1,35 @@
 class TagsList extends HTMLElement {
-  connectedCallback() {
+  // connectedCallback() {
+  //   this.render();
+  // }
+
+  set tags(tags) {
+    // eslint-disable-next-line no-underscore-dangle
+    this._tags = tags;
     this.render();
   }
 
   render() {
     this.innerHTML = `
-    <div class="p-4">
     <h4 class="fst-italic">Tags</h4>
-    <a class="btn btn-light btn-sm mb-1" href="page-category.html"
-      >Journey</a
-    >
-    <a class="btn btn-light btn-sm mb-1" href="page-category.html"
-      >Work</a
-    >
-    <a class="btn btn-light btn-sm mb-1" href="page-category.html"
-      >Lifestype</a
-    >
-    <a class="btn btn-light btn-sm mb-1" href="page-category.html"
-      >Photography</a
-    >
-    <a class="btn btn-light btn-sm mb-1" href="page-category.html"
-      >Food &amp; Drinks</a
-    >
-  </div>
-        `;
+    `;
+    // eslint-disable-next-line no-underscore-dangle
+    this._tags.forEach((tag) => {
+      this.innerHTML += `
+      <a class="btn btn-light btn-sm mb-1" href="page-category.html"
+      >${tag.strArea}</a>
+      `;
+    });
+  }
+
+  renderError(message) {
+    this.innerHTML = `
+    <h4 class="fst-italic">Tags</h4>
+    `;
+    this.innerHTML += `
+    <a class="btn btn-light btn-sm mb-1" "
+    >${message}</a>
+    `;
   }
 }
 
