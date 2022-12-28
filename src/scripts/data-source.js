@@ -82,7 +82,43 @@ class DataSource {
   static filterByCategory(keyword) {
     return fetch(
       // eslint-disable-next-line comma-dangle
-      `www.themealdb.com/api/json/v1/1/filter.php?c=${keyword}`
+      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${keyword}`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((responseJson) => {
+        if (responseJson.meals) {
+          return Promise.resolve(responseJson.meals);
+        } else {
+          // eslint-disable-next-line prefer-promise-reject-errors
+          return Promise.reject(`${keyword} is not found`);
+        }
+      });
+  }
+
+  static filterByTag(keyword) {
+    return fetch(
+      // eslint-disable-next-line comma-dangle
+      `https://www.themealdb.com/api/json/v1/1/filter.php?a=${keyword}`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((responseJson) => {
+        if (responseJson.meals) {
+          return Promise.resolve(responseJson.meals);
+        } else {
+          // eslint-disable-next-line prefer-promise-reject-errors
+          return Promise.reject(`${keyword} is not found`);
+        }
+      });
+  }
+
+  static getPopular(keyword) {
+    return fetch(
+      // eslint-disable-next-line comma-dangle
+      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${keyword}`
     )
       .then((response) => {
         return response.json();

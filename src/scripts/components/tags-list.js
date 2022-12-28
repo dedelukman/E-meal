@@ -16,7 +16,7 @@ class TagsList extends HTMLElement {
     // eslint-disable-next-line no-underscore-dangle
     this._tags.forEach((tag) => {
       this.innerHTML += `
-      <a class="btn btn-light btn-sm mb-1" href="page-category.html"
+      <a class="btn btn-light btn-sm mb-1" 
       >${tag.strArea}</a>
       `;
     });

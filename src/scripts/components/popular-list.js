@@ -13,15 +13,16 @@ class PopularList extends HTMLElement {
     this._items.forEach((item) => {
       this.innerHTML += ` 
       <div class="mb-4">
-      <a href="post-image.html" class="d-inline-block">
-      <h4 class="h6">${item.strMeal}</h4>
+      <a  class="d-inline-block">
+      <h4 class="h6" id=${item.idMeal}>${item.strMeal} </h4>
       <img
         class="card-img"
         src="${item.strMealThumb}"
         alt=""
+        id=${item.idMeal}
       />
     </a>
-    <time class="timeago" datetime="2021-09-03 20:00" timeago-id="5"
+    <time class="timeago" datetime="2021-09-03 20:00" timeago-id="5" id=${item.idMeal}
       >1 year ago</time
     >
     in ${item.strCategory}    

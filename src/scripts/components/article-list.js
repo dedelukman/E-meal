@@ -16,7 +16,7 @@ class ArticleList extends HTMLElement {
     <p class="blog-post-meta">
       Category - ${item.strCategory} , Origin - ${item.strArea} 
     </p>
-    <a href="post-image.html">
+    <a >
       <img
         class="card-img"
         src="${item.strMealThumb}"

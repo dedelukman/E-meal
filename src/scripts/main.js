@@ -37,7 +37,15 @@ const main = () => {
   };
 
   const onfilterByCategoryClicked = async (category) => {
-    articleListElement.items = await DataSource.searchMeal(category);
+    articleListElement.items = await DataSource.filterByCategory(category);
+  };
+
+  const onfilterByTagClicked = async (tag) => {
+    articleListElement.items = await DataSource.filterByTag(tag);
+  };
+
+  const onPopularClicked = async (popular) => {
+    articleListElement.items = await DataSource.getPopular(popular);
   };
 
   getTagsList();
@@ -49,6 +57,14 @@ const main = () => {
 
   categoryListElement.addEventListener('click', (event) => {
     onfilterByCategoryClicked(event.target.text);
+  });
+
+  tagListElement.addEventListener('click', (event) => {
+    onfilterByTagClicked(event.target.text);
+  });
+
+  popularListElement.addEventListener('click', (event) => {
+    onPopularClicked(event.target.id);
   });
 };
 
