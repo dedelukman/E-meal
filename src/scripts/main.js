@@ -36,12 +36,20 @@ const main = () => {
     articleListElement.items = await DataSource.searchMeal(searchElement.value);
   };
 
+  const onfilterByCategoryClicked = async (category) => {
+    articleListElement.items = await DataSource.searchMeal(category);
+  };
+
   getTagsList();
   getPopularList();
   getDefaultList();
   getCategoryList();
 
   searchElement.clickEvent = onButtonSearchClicked;
+
+  categoryListElement.addEventListener('click', (event) => {
+    onfilterByCategoryClicked(event.target.text);
+  });
 };
 
 export default main;
